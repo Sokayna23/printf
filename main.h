@@ -9,5 +9,7 @@ int _puts(char *str);
 int _strlen(char *s);
 int _printf(const char *format, ...);
 int _putnbr(int n);
-char *_uitoa_base(unsigned int n, int base);
+char *_uitoa_base(unsigned int n, char base);
+int _isinstr(char *str, char toFind);
+void _to_upper(char *s);
 #endif

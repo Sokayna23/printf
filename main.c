@@ -41,7 +41,7 @@ int main(void)
     printf("Unknown:[%r]\n");*/
 
  /*   int nb = 55;*/
-    _len = _printf("%b\n", 98);
+    _len = _printf("%o\n", 14);
     
     printf ("\n_len = %d\n", _len);
     return (0);

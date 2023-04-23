@@ -17,16 +17,27 @@ int	decLenBase(unsigned int n, int base)
 
 /**
  * _uitoa_base - convert ui to other base.
- * @base : new base
+ * @toBase : new base
  * @n: nb to convert
  * Return: result as string
  */
-char *_uitoa_base(unsigned int n, int base)
+char *_uitoa_base(unsigned int n, char toBase)
 {
-	const char *b = "0123456789abcdef";
+	char b[16] = "0123456789abcdef";
 	int len;
 	char *result;
+	int base = 10;
 
+	if (toBase == 'b')
+		base = 2;
+	else if (toBase == 'u')
+		base = 10;
+	else if (toBase == 'o')
+		base = 8;
+	else if (toBase == 'x' || toBase == 'X')
+		base = 16;
+	if (toBase == 'X')
+		_to_upper(b);
 	len = decLenBase(n, base);
 	result = (char *)malloc(len + 1);
 	if (!result)
