@@ -20,6 +20,7 @@ int _putchar(char c)
 int _puts(char *str, char format)
 {
 	int len = 0;
+	char *STR;
 
 	if (!str)
 		return (_puts("(null)", format));
@@ -47,7 +48,10 @@ int _puts(char *str, char format)
 			if (_isprintable(*str))
 				len += write(1, str, 1);
 			else
-				len += _printf("\\x0%X", *str);
+			{
+				STR = _uitoa_base(*str, 'X');
+				len += _printf("\\x%s%s", (_strlen(STR) == 1 ? "0" : "") ,STR);
+			}
 			str += 1;
 		}
 	}
