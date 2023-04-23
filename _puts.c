@@ -18,12 +18,23 @@ int _putchar(char c)
  */
 int _puts(char *str)
 {
-	int len;
+	int len = 0;
 
 	if (!str)
 		return (_puts("(null)"));
-	len = _strlen(str);
 	while (*str)
-		_putchar(*str++);
+	{
+		len += _strlen(str);
+		if (len >= BUFFER_SIZE)
+		{
+			write(1, str, BUFFER_SIZE);
+			str += BUFFER_SIZE;
+		}
+		else
+		{
+			write(1, str, len);
+			str += len;
+		}
+	}
 	return (len);
 }
