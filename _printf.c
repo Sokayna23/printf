@@ -11,11 +11,10 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int length, C, l;
+	int length = 0, C;
 	char *s;
 
 	va_start(args, format);
-	length = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -24,32 +23,20 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				C = va_arg(args, int);
-				write(1, &C, 1);
-				length++;
+				length += write(1, &C, 1);
 			}
 			else if (*format == 's')
 			{
 				s = va_arg(args, char *);
-				l = strlen(s);
-				write(1, s, l);
-				length = length + l;
+				length += write(1, s, strlen(s));
 			}
 			else if (*format == '%')
-			{
-				write(1, format, 1);
-				length++;
-			}
+				length += write(1, format, 1);
 			else
-			{
-				write(1, format - 1, 2);
-				length = length + 2;
-			}
+				length += write(1, format - 1, 2);
 		}
 	else
-	{
-		write(1, format, 1);
-		length++;
-	}
+		length += write(1, format, 1);
 	format++;
 }
 va_end(args);
