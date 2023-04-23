@@ -47,7 +47,7 @@ int _puts(char *str, char format)
 			if (_isprintable(*str))
 				len += write(1, str, 1);
 			else
-				len += _printf("\\x%X", *str);
+				len += _printf("\\x0%X", *str);
 			str += 1;
 		}
 	}
