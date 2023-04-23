@@ -11,7 +11,7 @@ int main(void)
 {
 	int _len;
 
-	_len = _puts("aa");
+	_len = _printf("%S\n", "Best\nSchool");
 	printf("\n_len = %d\n", _len);
 	return (0);
 }

@@ -19,12 +19,12 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 				length += _putchar(va_arg(args, int));
-			else if (*format == 's')
-				length += _puts(va_arg(args, char *));
+			else if (_isinstr("Ss", *format))
+				length += _puts(va_arg(args, char *), *format);
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int));
 			else if (_isinstr("buoxX", *format))
-				length += _puts((_uitoa_base(va_arg(args, int), *format)));
+				length += _puts((_uitoa_base(va_arg(args, int), *format)), 's');
 			else if (*format == '%')
 				length += _putchar(*format);
 			else

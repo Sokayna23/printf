@@ -14,26 +14,41 @@ int _putchar(char c)
 /**
  * _puts- swap
  * @str: str
+ * @format: format
  * Return: nb char printed.
  */
-int _puts(char *str)
+int _puts(char *str, char format)
 {
 	int len = 0;
 
 	if (!str)
-		return (_puts("(null)"));
-	while (*str)
+		return (_puts("(null)", format));
+	if (format == 's')
 	{
-		len += _strlen(str);
-		if (len >= BUFFER_SIZE)
+		while (*str)
 		{
-			write(1, str, BUFFER_SIZE);
-			str += BUFFER_SIZE;
+			len += _strlen(str);
+			if (len >= BUFFER_SIZE)
+			{
+				write(1, str, BUFFER_SIZE);
+				str += BUFFER_SIZE;
+			}
+			else
+			{
+				write(1, str, len);
+				str += len;
+			}
 		}
-		else
+	}
+	else
+	{
+		while (*str)
 		{
-			write(1, str, len);
-			str += len;
+			if (_isprintable(*str))
+				len += write(1, str, 1);
+			else
+				len += _printf("\\x%X", *str);
+			str += 1;
 		}
 	}
 	return (len);

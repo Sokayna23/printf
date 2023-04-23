@@ -6,11 +6,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 int _putchar(char c);
-int _puts(char *str);
+int _puts(char *str, char format);
 int _strlen(char *s);
 int _printf(const char *format, ...);
 int _putnbr(int n);
 char *_uitoa_base(unsigned int n, char base);
 int _isinstr(char *str, char toFind);
 void _to_upper(char *s);
+int _isprintable(char c);
 #endif
