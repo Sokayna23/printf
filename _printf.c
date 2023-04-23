@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 				length += _putchar(va_arg(args, int));
 			else if (*format == 's')
 				length += _puts(va_arg(args, char *));
+			else if (*format == 'd' || *format == 'i')
+				length += _putnbr(va_arg(args, int));
 			else if (*format == '%')
 				length += _putchar(*format);
 			else

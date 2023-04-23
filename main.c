@@ -10,7 +10,7 @@
 int main(void)
 {
     int len;
-    int len2;
+    int _len;
 /*    unsigned int ui;
     void *addr;
 
@@ -41,9 +41,10 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");*/
 
-    len = _printf("%s%%test\n", NULL);
-    len2 = printf("%s%%test\n", NULL);
+    int nb = INT_MIN;
+    _len = printf("%d\n", nb);
+    len = printf("%d\n", nb);
 
-    printf ("_len = %d\nlen  = %d\n", len, len2);
+    printf ("\n_len = %d\nlen  = %d\n", _len, len);
     return (0);
 }

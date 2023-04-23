@@ -7,4 +7,5 @@ int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *s);
 int _printf(const char *format, ...);
+int _putnbr(int n);
 #endif
