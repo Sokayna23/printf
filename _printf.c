@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-
 /**
  * _printf - Produces output
  * @format: A character string
@@ -11,40 +7,36 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int length = 0, C;
-	char *s;
+	int length = 0;
 
 	va_start(args, format);
-<<<<<<< HEAD
 	if (format == NULL)
 		return (-1);
 	length = 0;
-=======
->>>>>>> 42bb1f0fc9c398762373036613a4fcde652fa0ac
+	if (!format || (*format == '%' && !format[1]))
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
 			if (*format == 'c')
-			{
-				C = va_arg(args, int);
-				length += write(1, &C, 1);
-			}
-			else if (*format == 's')
-			{
-				s = va_arg(args, char *);
-				length += write(1, s, _strlen(s));
-			}
+				length += _putchar(va_arg(args, int));
+			else if (_isinstr("Ss", *format))
+				length += _puts(va_arg(args, char *), *format);
+			else if (*format == 'd' || *format == 'i')
+				length += _putnbr(va_arg(args, int));
+			else if (_isinstr("buoxX", *format))
+				length += _puts((_uitoa_base(va_arg(args, int), *format)), 's');
 			else if (*format == '%')
-				length += write(1, format, 1);
+				length += _putchar(*format);
 			else
 				length += write(1, format - 1, 2);
 		}
-	else
-		length += write(1, format, 1);
-	format++;
-}
-va_end(args);
-return (length);
+		else
+			length += write(1, format, 1);
+		format++;
+	}
+	va_end(args);
+	return (length);
 }
