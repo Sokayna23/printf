@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-
 /**
  * _printf - Produces output
  * @format: A character string
@@ -11,8 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int length = 0, C;
-	char *s;
+	int length = 0;
 
 	va_start(args, format);
 	while (*format)
@@ -21,15 +16,9 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == 'c')
-			{
-				C = va_arg(args, int);
-				length += write(1, &C, 1);
-			}
+				length += _putchar(va_arg(args, int));
 			else if (*format == 's')
-			{
-				s = va_arg(args, char *);
-				length += write(1, s, _strlen(s));
-			}
+				length += _puts(va_arg(args, char *));
 			else if (*format == '%')
 				length += write(1, format, 1);
 			else
