@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	int length = 0;
 
 	va_start(args, format);
-	if (!format || (format[0] == '%' && !format[1]))
+	if (!format || (*format == '%' && !format[1]))
 		return (-1);
 	while (*format)
 	{
@@ -22,14 +22,14 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 				length += _puts(va_arg(args, char *));
 			else if (*format == '%')
-				length += write(1, format, 1);
+				length += _putchar(*format);
 			else
 				length += write(1, format - 1, 2);
 		}
-	else
-		length += write(1, format, 1);
-	format++;
-}
-va_end(args);
-return (length);
+		else
+			length += write(1, format, 1);
+		format++;
+	}
+	va_end(args);
+	return (length);
 }

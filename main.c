@@ -41,9 +41,9 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");*/
 
-    len = _printf("_String:[%qs]\n", "I am a string !");
-    len2 = printf(" String:[%qs]\n", "I am a string !");
+    len = _printf("%s%%test\n", NULL);
+    len2 = printf("%s%%test\n", NULL);
 
-    printf ("_len  = %d\nlen = %d\n", len, len2);
+    printf ("_len = %d\nlen  = %d\n", len, len2);
     return (0);
 }

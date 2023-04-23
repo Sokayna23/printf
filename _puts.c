@@ -20,6 +20,8 @@ int _puts(char *str)
 {
 	int len;
 
+	if (!str)
+		return (_puts("(null)"));
 	len = _strlen(str);
 	while (*str)
 		_putchar(*str++);
