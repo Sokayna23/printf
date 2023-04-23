@@ -3,9 +3,11 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *s);
 int _printf(const char *format, ...);
 int _putnbr(int n);
+char *_uitoa_base(unsigned int n, int base);
 #endif

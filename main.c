@@ -9,7 +9,6 @@
  */
 int main(void)
 {
-    int len;
     int _len;
 /*    unsigned int ui;
     void *addr;
@@ -41,10 +40,9 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");*/
 
-    int nb = INT_MIN;
-    _len = printf("%d\n", nb);
-    len = printf("%d\n", nb);
-
-    printf ("\n_len = %d\nlen  = %d\n", _len, len);
+ /*   int nb = 55;*/
+    _len = _printf("%b\n", 98);
+    
+    printf ("\n_len = %d\n", _len);
     return (0);
 }

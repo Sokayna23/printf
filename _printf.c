@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 				length += _puts(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int));
+			else if (*format == 'b')
+				length += _puts((_uitoa_base(va_arg(args, int), 2)));
 			else if (*format == '%')
 				length += _putchar(*format);
 			else

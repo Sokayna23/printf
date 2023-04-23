@@ -2,6 +2,7 @@
 /**
  * _putnbr - print number.
  * @n: integer
+ * Return: nb char of n
  */
 int _putnbr(int n)
 {
