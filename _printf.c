@@ -11,6 +11,9 @@ int _printf(const char *format, ...)
 	int length = 0;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
+	length = 0;
 	if (!format || (*format == '%' && !format[1]))
 		return (-1);
 	while (*format)
