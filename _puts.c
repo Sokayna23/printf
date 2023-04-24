@@ -20,13 +20,26 @@ int _putchar(char c)
 int _puts(char *str)
 {
 	int len;
+	char *ptr;
 
-	if (!str)
+	ptr = str;
+	if (!ptr)
 		return (_puts("(null)"));
-	len = _strlen(str);
-	while (*str)
-		_putchar(*str++);
-	return (len);
+	while (*ptr)
+	{
+		len = _strlen(ptr);
+		if (len >= BUFFER_SIZE)
+		{
+			write(1, ptr, BUFFER_SIZE);
+			ptr += BUFFER_SIZE;
+		}
+		else
+		{
+			write(1, ptr, len);
+			return (_strlen(str));
+		}
+	}
+	return (_strlen(str));
 }
 
 /**
