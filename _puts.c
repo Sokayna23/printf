@@ -52,19 +52,21 @@ int _putsNonPrintable(char *str)
 {
 	int len = 0;
 	char *HexChar;
+	char *ptr;
 
-	if (!str)
+	ptr = str;
+	if (!ptr)
 		return (_puts("(null)"));
-	while (*str)
+	while (*ptr)
 	{
-		if (_isprintable(*str))
-			len += write(1, str, 1);
+		if (_isprintable(*ptr))
+			len += write(1, ptr, 1);
 		else
 		{
-			HexChar = _uitoa_base(*str, 'X');
+			HexChar = _uitoa_base(*ptr, 'X');
 			len += _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
 		}
-		str += 1;
+		ptr += 1;
 	}
 	return (_strlen(str));
 }
