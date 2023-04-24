@@ -15,4 +15,5 @@ int _isinstr(char *str, char toFind);
 void _to_upper(char *s);
 int _isprintable(char c);
 int _putsNonPrintable(char *str);
+int _puts_address(void *ptr);
 #endif
