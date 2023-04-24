@@ -9,9 +9,6 @@
  */
 int main(void)
 {
-	int _len;
-
-	_len = _printf("Test Test\n", "Best\nSchool");
-	printf("\n_len = %d\n", _len);
+	_printf("%S\n", "Best\nSchool");
 	return (0);
 }

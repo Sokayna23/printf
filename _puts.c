@@ -34,7 +34,7 @@ int _puts(char *str)
 		else
 		{
 			write(1, str, len);
-			return (_strlen(str));
+			return (len);
 		}
 	}
 	return (_strlen(str));
