@@ -85,9 +85,8 @@ int _puts_address(void *ptr)
 		if (ptr[i] < 10)
 			hex_str[i] = '0' + ptr[i];
 		else
-			hex-str[i] = 'a' + ptr[i] - 10;
+			hex_str[i] = 'a' + ptr[i] - 10;
 	}
 	hex_str[16] = '\0';
-	_putchar(*hex_str);
 	return (_strlen(hex_str));
 }
