@@ -26,7 +26,7 @@ int _puts(char *str)
 	while (*str)
 	{
 		len = _strlen(str);
-		if (len > BUFFER_SIZE)
+		if (len >= BUFFER_SIZE)
 		{
 			write(1, str, BUFFER_SIZE);
 			str += BUFFER_SIZE;
