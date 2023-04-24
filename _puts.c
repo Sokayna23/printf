@@ -11,50 +11,57 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-
 /**
- * _puts- swap
+ * _puts- _puts printable
  * @str: str
- * @isPrintable: isPrintable
  * Return: nb char printed.
  */
-int _puts(char *str, char isPrintable)
+
+int _puts(char *str)
 {
-	int len = 0;
-	char *STR;
+	int len;
 
 	if (!str)
-		return (_puts("(null)", isPrintable));
-	if (isPrintable == 's')
+		return (_puts("(null)"));
+	while (*str)
 	{
-		while (*str)
+		len = _strlen(str);
+		if (len > BUFFER_SIZE)
 		{
-			len =  _strlen(str);
-			if (len >= BUFFER_SIZE)
-			{
-				write(1, str, BUFFER_SIZE);
-				str += BUFFER_SIZE;
-			}
-			else
-			{
-				write(1, str, len);
-				str += len;
-			}
+			write(1, str, BUFFER_SIZE);
+			str += BUFFER_SIZE;
+		}
+		else
+		{
+			write(1, str, len);
+			return (_strlen(str));
 		}
 	}
-	else
+	return (_strlen(str));
+}
+/**
+ * _putsNonPrintable- puts non printable
+ * @str: str
+ * Return: nb char printed.
+ */
+
+int _putsNonPrintable(char *str)
+{
+	int len = 0;
+	char *HexChar;
+
+	if (!str)
+		return (_puts("(null)"));
+	while (*str)
 	{
-		while (*str)
+		if (_isprintable(*str))
+			len += write(1, str, 1);
+		else
 		{
-			if (_isprintable(*str))
-				len += write(1, str, 1);
-			else
-			{
-				STR = _uitoa_base(*str, 'X');
-				len += _printf("\\x%s%s", (_strlen(STR) == 1 ? "0" : ""), STR);
-			}
-			str += 1;
+			HexChar = _uitoa_base(*str, 'X');
+			len += _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
 		}
+		str += 1;
 	}
 	return (_strlen(str));
 }

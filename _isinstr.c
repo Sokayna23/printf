@@ -5,6 +5,7 @@
  * @toFind : char to find in str
  * Return: true if is find
  */
+
 int _isinstr(char *str, char toFind)
 {
 	while (*str)
