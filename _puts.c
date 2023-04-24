@@ -20,25 +20,28 @@ int _putchar(char c)
 int _puts(char *str)
 {
 	int len;
+	char *ptr;
 
-	if (!str)
+	ptr = str;
+	if (!ptr)
 		return (_puts("(null)"));
-	while (*str)
+	while (*ptr)
 	{
-		len = _strlen(str);
+		len = _strlen(ptr);
 		if (len >= BUFFER_SIZE)
 		{
-			write(1, str, BUFFER_SIZE);
-			str += BUFFER_SIZE;
+			write(1, ptr, BUFFER_SIZE);
+			ptr += BUFFER_SIZE;
 		}
 		else
 		{
-			write(1, str, len);
+			write(1, ptr, len);
 			return (_strlen(str));
 		}
 	}
 	return (_strlen(str));
 }
+
 /**
  * _putsNonPrintable- puts non printable
  * @str: str
@@ -49,21 +52,23 @@ int _putsNonPrintable(char *str)
 {
 	int len = 0;
 	char *HexChar;
+	char *ptr;
 
-	if (!str)
+	ptr = str;
+	if (!ptr)
 		return (_puts("(null)"));
-	while (*str)
+	while (*ptr)
 	{
-		if (_isprintable(*str))
-			len += write(1, str, 1);
+		if (_isprintable(*ptr))
+			len += _putchar(*ptr);
 		else
 		{
-			HexChar = _uitoa_base(*str, 'X');
+			HexChar = _uitoa_base(*ptr, 'X');
 			len += _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
 		}
-		str += 1;
+		ptr += 1;
 	}
-	return (_strlen(str));
+	return (len);
 }
 /**
  * _puts_address - prints address of a variable
