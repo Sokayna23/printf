@@ -60,7 +60,7 @@ int _putsNonPrintable(char *str)
 	while (*ptr)
 	{
 		if (_isprintable(*ptr))
-			len += write(1, ptr, 1);
+			len += _putchar(*ptr);
 		else
 		{
 			HexChar = _uitoa_base(*ptr, 'X');
@@ -68,5 +68,5 @@ int _putsNonPrintable(char *str)
 		}
 		ptr += 1;
 	}
-	return (_strlen(str));
+	return (len);
 }
