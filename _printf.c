@@ -29,11 +29,10 @@ int _printf(const char *format, ...)
 				length += _putsNonPrintable(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int));
-else if (_isinstr("buoxX", *format))
+			else if (_isinstr("buoxX", *format))
 				length += _puts(_uitoa_base(va_arg(args, int), *format));
 			else if (*format == 'p')
-			{
-				length += _puts(_uitoa_base(va_arg(args, void *)), *format);
+				length += _puts(va_arg(args, void *));
 			else if (*format == '%')
 				length += _putchar(*format);
 			else
