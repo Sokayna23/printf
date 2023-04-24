@@ -11,24 +11,25 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
+
 /**
  * _puts- swap
  * @str: str
- * @format: format
+ * @isPrintable: isPrintable
  * Return: nb char printed.
  */
-int _puts(char *str, char format)
+int _puts(char *str, char isPrintable)
 {
 	int len = 0;
 	char *STR;
 
 	if (!str)
-		return (_puts("(null)", format));
-	if (format == 's')
+		return (_puts("(null)", isPrintable));
+	if (isPrintable == 's')
 	{
 		while (*str)
 		{
-			len += _strlen(str);
+			len =  _strlen(str);
 			if (len >= BUFFER_SIZE)
 			{
 				write(1, str, BUFFER_SIZE);
@@ -50,10 +51,10 @@ int _puts(char *str, char format)
 			else
 			{
 				STR = _uitoa_base(*str, 'X');
-				len += _printf("\\x%s%s", (_strlen(STR) == 1 ? "0" : "") ,STR);
+				len += _printf("\\x%s%s", (_strlen(STR) == 1 ? "0" : ""), STR);
 			}
 			str += 1;
 		}
 	}
-	return (len);
+	return (_strlen(str));
 }
