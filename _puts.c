@@ -88,5 +88,6 @@ int _puts_address(void *ptr)
 			hex-str[i] = 'a' + ptr[i] - 10;
 	}
 	hex_str[16] = '\0';
+	_putchar(*hex_str);
 	return (_strlen(hex_str));
 }
