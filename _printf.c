@@ -31,6 +31,8 @@ int _printf(const char *format, ...)
 				length += _putnbr(va_arg(args, int));
 			else if (_isinstr("buoxX", *format))
 				length += _puts(_uitoa_base(va_arg(args, int), *format));
+			else if (*format == 'p')
+				length += _puts(va_arg(args, void *), *format);
 			else if (*format == '%')
 				length += _putchar(*format);
 			else
