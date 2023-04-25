@@ -20,6 +20,6 @@ int _putAddress(unsigned long int address, t_flag *flags)
 		len += _putchar(' ');
 	flags->plus = false;
 	flags->spc = false;
-	len = _putbase(address, 'x', *flags);
+	len += _putbase(address, 'x', *flags);
 	return (len);
 }
