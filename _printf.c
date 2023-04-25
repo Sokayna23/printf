@@ -30,9 +30,9 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int));
 			else if (_isinstr("buoxX", *format))
-				length += _puts(_uitoa_base(va_arg(args, int), *format));
+				length += _puts(_uitoa_base(va_arg(args, unsigned long int), *format));
 			else if (*format == 'p')
-				length += _puts(_uitoa_base(va_arg(args, unsigned int), *format));
+				length += _putsAddress(va_arg(args, unsigned long int));
 			else if (*format == '%')
 				length += _putchar(*format);
 			else
@@ -44,5 +44,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (length);
-	
 }

@@ -9,6 +9,9 @@
  */
 int main(void)
 {
-	_printf("test%Stest\n", "Best\nSchool");
+	int a;
+
+	a = 5;
+	_printf("test%ptest\n", &a);
 	return (0);
 }

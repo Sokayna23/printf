@@ -5,7 +5,7 @@
  * @base : new base
  * Return: lenght new base
  */
-int decLenBase(unsigned int n, int base)
+int decLenBase(unsigned long int n, int base)
 {
 	int len;
 
@@ -25,7 +25,7 @@ int decLenBase(unsigned int n, int base)
  * @n: nb to convert
  * Return: result as string
  */
-char *_uitoa_base(unsigned int n, char toBase)
+char *_uitoa_base(unsigned long int n, char toBase)
 {
 	char b[16] = "0123456789abcdef";
 	int len;
