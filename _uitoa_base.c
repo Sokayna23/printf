@@ -5,7 +5,7 @@
  * @base : new base
  * Return: lenght new base
  */
-int	decLenBase(unsigned int n, int base)
+int decLenBase(unsigned int n, int base)
 {
 	int len;
 
