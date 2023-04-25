@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int), flags);
 			else if (*format == 'b')
-				length += _puts(_uitoa_base(va_arg(args, int), 2));
+				length += _puts(_uitoa_base(va_arg(args, unsigned long int), 2));
 			else if (*format == 'p')
 				length += _putAddress(va_arg(args, unsigned long int), &flags);
 			else if (*format == '%')
