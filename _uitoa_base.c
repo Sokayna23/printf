@@ -40,11 +40,6 @@ char *_uitoa_base(unsigned int n, char toBase)
 		base = 8;
 	else if (toBase == 'x' || toBase == 'X')
 		base = 16;
-	if (toBase == 'x')
-	{
-		_putchar('0');
-		_putchar('x');
-	}
 	if (toBase == 'X')
 		_to_upper(b);
 	len = decLenBase(n, base);
