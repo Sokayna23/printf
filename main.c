@@ -9,13 +9,11 @@
  */
 int main(void)
 {
-
 	int _len;
 	int len;
 
-
-	_len = _printf("%p\n", NULL);
-	len = printf("%p\n", NULL);
+	_len = _printf("%+  +++d\n", 55);
+	len = printf("%+++ ++ d\n", 55);
 
 	printf("len = %d, _len = %d\n", len, _len);
 	return (0);

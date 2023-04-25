@@ -21,27 +21,16 @@ int decLenBase(unsigned long int n, int base)
 
 /**
  * _uitoa_base - convert ui to other base.
- * @toBase : new base
+ * @base : new base
  * @n: nb to convert
  * Return: result as string
  */
-char *_uitoa_base(unsigned long int n, char toBase)
+char *_uitoa_base(unsigned long int n, int base)
 {
 	char b[16] = "0123456789abcdef";
 	int len;
 	char *result;
-	int base = 10;
 
-	if (toBase == 'b')
-		base = 2;
-	else if (toBase == 'u')
-		base = 10;
-	else if (toBase == 'o')
-		base = 8;
-	else if (toBase == 'x' || toBase == 'X')
-		base = 16;
-	if (toBase == 'X')
-		_to_upper(b);
 	len = decLenBase(n, base);
 	result = (char *)malloc(len + 1);
 	if (!result)

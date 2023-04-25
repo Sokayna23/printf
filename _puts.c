@@ -1,15 +1,4 @@
 #include "main.h"
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  * _puts- _puts printable
@@ -40,47 +29,4 @@ int _puts(char *str)
 		}
 	}
 	return (_strlen(str));
-}
-
-/**
- * _putsNonPrintable- puts non printable
- * @str: str
- * Return: nb char printed.
- */
-
-int _putsNonPrintable(char *str)
-{
-	int len = 0;
-	char *HexChar;
-	char *ptr;
-
-	ptr = str;
-	if (!ptr)
-		return (_puts("(null)"));
-	while (*ptr)
-	{
-		if (_isprintable(*ptr))
-			len += _putchar(*ptr);
-		else
-		{
-			HexChar = _uitoa_base(*ptr, 'X');
-			len += _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
-		}
-		ptr += 1;
-	}
-	return (len);
-}
-
-/**
- * _putsAddress- %p
- * @address: address
- * Return: nb char printed.
- */
-
-int _putsAddress(unsigned long int address)
-{
-	if (address == 0)
-		return (_puts("(nil)"));
-	_puts("0x");
-	return (2 + _puts(_uitoa_base(address, 'x')));
 }

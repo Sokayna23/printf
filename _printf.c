@@ -8,6 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
+	t_flag flags;
 	int length = 0;
 
 	va_start(args, format);
@@ -21,6 +22,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			getFlags(&format, &flags);
 			if (*format == 'c')
 				length += _putchar(va_arg(args, int));
 			else if ((*format == 's'))
@@ -28,11 +30,11 @@ int _printf(const char *format, ...)
 			else if ((*format == 'S'))
 				length += _putsNonPrintable(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
-				length += _putnbr(va_arg(args, int));
+				length += _putnbr(va_arg(args, int), flags);
 			else if (_isinstr("buoxX", *format))
-				length += _puts(_uitoa_base(va_arg(args, unsigned long int), *format));
+				length += _putbase(va_arg(args, unsigned long int), *format, flags);
 			else if (*format == 'p')
-				length += _putsAddress(va_arg(args, unsigned long int));
+				length += _putsAddress(va_arg(args, unsigned long int), &flags);
 			else if (*format == '%')
 				length += _putchar(*format);
 			else
@@ -44,4 +46,31 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (length);
+}
+
+/**
+ * getFlags - getFlags
+ * @format: format
+ * @flags: flags
+ */
+void getFlags(const char **format, t_flag *flags)
+{
+	while (**format && _isinstr("+ #", **format))
+	{
+		if (**format == '+')
+			flags->plus = 1;
+		else if (**format == ' ')
+			flags->spc = 1;
+		else if (**format == '#')
+			flags->sharp = 1;
+		(*format)++;
+	}
+}
+
+/**
+ * getConversion - getConversion
+ */
+void getConversion(void)
+{
+
 }
