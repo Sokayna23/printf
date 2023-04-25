@@ -41,8 +41,8 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
-	_len = _printf("%#o\n", 23);
-	len = printf("%#o\n", 23);
+	_len = _printf(" %#o %#o %#o %#o %#o %#o %#o\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	len = printf(" %#o %#o %#o %#o %#o %#o %#o\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 	printf("len = %d, _len = %d\n", len, _len);
 	return (0);
 }
