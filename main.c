@@ -41,10 +41,8 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
-
-	_len = _printf("%b\n", 200);
-	len = printf("%d\n", 12);
-
+	_len = _printf("%b\n", 120);
+	len = printf("%d\n", 4);
 	printf("len = %d, _len = %d\n", len, _len);
 	return (0);
 }

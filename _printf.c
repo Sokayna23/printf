@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			resetFlags(&flags);
 			getFlags(&format, &flags);
 			if (*format == 'c')
 				length += _putchar(va_arg(args, int));
@@ -32,8 +31,8 @@ int _printf(const char *format, ...)
 				length += _putNonPrintable(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int), flags);
-			else if (_isinstr("buoxX", *format))
-				length += _putbase(va_arg(args, unsigned long int), *format, flags);
+			else if (*format == 'b')
+				length += _puts(_uitoa_base(va_arg(args, int), 2));
 			else if (*format == 'p')
 				length += _putAddress(va_arg(args, unsigned long int), &flags);
 			else if (*format == '%')

@@ -17,6 +17,7 @@ void resetFlags(t_flag *flags)
  */
 void getFlags(const char **format, t_flag *flags)
 {
+	resetFlags(flags);
 	while (**format && _isinstr("+ #", **format))
 	{
 		if (**format == '+')
