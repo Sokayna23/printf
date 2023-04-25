@@ -13,21 +13,24 @@ void resetFlags(t_flag *flags)
 }
 /**
  * getFlags - getFlags
- * @format: format
+ * @frm: format
  * @flags: flags
  */
-void getFlags(const char **format, t_flag *flags)
+void getFlags(const char **frm, t_flag *flags)
 {
-	while (**format && _isinstr("+ #", **format))
+	while (**frm && _isinstr("+ #", **frm))
 	{
-		if (**format == '+')
+		if (**frm == '+')
 			flags->plus = 1;
-		else if (**format == ' ')
+		else if (**frm == ' ')
 			flags->spc = 1;
-		else if (**format == '#')
+		else if (**frm == '#')
 			flags->sharp = 1;
-		else if (_isinstr("lh", **format) && _isinstr("diuoxX", **(format + 1)))
-			flags->lenMod = **format;
-		(*format)++;
+		(*frm)++;
+	}
+	if (**frm && _isinstr("lh", **frm) && _isinstr("diuoxX", *(*frm + 1)))
+	{
+		flags->lenMod = **frm;
+		(*frm)++;
 	}
 }
