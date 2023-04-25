@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("% p\n", 2);
-    _len = _printf("% p\n", 2);
+    len = printf("%    p\n", 2);
+    _len = _printf("%     p\n", 2);
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }
