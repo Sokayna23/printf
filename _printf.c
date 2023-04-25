@@ -31,8 +31,8 @@ int _printf(const char *format, ...)
 				length += _putNonPrintable(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int), flags);
-			else if (*format == 'b')
-				length += _puts(_uitoa_base(va_arg(args, unsigned int), 2));
+			else if (_isinstr("buoxX", *format))
+				length += _putbase(va_arg(args, unsigned int), *format, flags);
 			else if (*format == 'p')
 				length += _putAddress(va_arg(args, unsigned long int), &flags);
 			else if (*format == '%')
@@ -46,6 +46,35 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (length);
+}
+
+/**
+ * resetFlags - Reset flags
+ * @flags: flags
+ */
+void resetFlags(t_flag *flags)
+{
+	flags->plus = false;
+	flags->sharp = false;
+	flags->spc = false;
+}
+/**
+ * getFlags - getFlags
+ * @format: format
+ * @flags: flags
+ */
+void getFlags(const char **format, t_flag *flags)
+{
+	while (**format && _isinstr("+ #", **format))
+	{
+		if (**format == '+')
+			flags->plus = 1;
+		else if (**format == ' ')
+			flags->spc = 1;
+		else if (**format == '#')
+			flags->sharp = 1;
+		(*format)++;
+	}
 }
 
 /**
