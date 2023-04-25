@@ -20,8 +20,10 @@ int _putNonPrintable(char *str)
 			len += _putchar(*ptr);
 		else
 		{
-			HexChar = _uitoa_base(*ptr, 'X');
+			HexChar = _uitoa_base(*ptr, 16);
+			_to_upper(HexChar);
 			len += _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
+			free(HexChar);
 		}
 		ptr += 1;
 	}
