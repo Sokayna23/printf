@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			resetFlags(&flags);
 			getFlags(&format, &flags);
 			if (*format == 'c')
 				length += _putchar(va_arg(args, int));
@@ -48,24 +49,6 @@ int _printf(const char *format, ...)
 	return (length);
 }
 
-/**
- * getFlags - getFlags
- * @format: format
- * @flags: flags
- */
-void getFlags(const char **format, t_flag *flags)
-{
-	while (**format && _isinstr("+ #", **format))
-	{
-		if (**format == '+')
-			flags->plus = 1;
-		else if (**format == ' ')
-			flags->spc = 1;
-		else if (**format == '#')
-			flags->sharp = 1;
-		(*format)++;
-	}
-}
 
 /**
  * getConversion - getConversion
