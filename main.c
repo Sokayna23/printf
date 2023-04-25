@@ -10,8 +10,12 @@
 int main(void)
 {
 	int a;
-
+	int _len;
+	int len;
 	a = 5;
-	_printf("test%ptest\n", &a);
+	_len = _printf("%p\n", &a);
+	len = printf("%p\n", &a);
+
+	printf("len = %d, _len = %d", len, _len);
 	return (0);
 }

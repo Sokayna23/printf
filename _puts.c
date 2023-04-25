@@ -80,5 +80,5 @@ int _putsNonPrintable(char *str)
 int _putsAddress(unsigned long int address)
 {
 	_puts("0x");
-	return (2 + _puts(_uitoa_base(address, 'X')));
+	return (2 + _puts(_uitoa_base(address, 'x')));
 }
