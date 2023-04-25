@@ -10,12 +10,8 @@ int decLenBase(unsigned long int n, int base)
 	int len;
 
 	len = 1;
-	n = n / base;
-	while (n > 0)
-	{
-		n = n / base;
+	while ((n = n / base))
 		len++;
-	}
 	return (len);
 }
 
