@@ -11,11 +11,9 @@ int main(void)
 {
 	int _len;
 	int len;
-	int *p;
 
-	p = &_len;
-	_len = _printf("%p\n", p);
-	len = printf("%p\n", p);
+	_len = _printf("%+ + #X\n", 12);
+	len = printf("%+ + #X\n", 12);
 
 	printf("len = %d, _len = %d\n", len, _len);
 	return (0);
