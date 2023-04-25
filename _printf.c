@@ -31,9 +31,9 @@ int _printf(const char *format, ...)
 			else if ((*format == 'S'))
 				length += _putNonPrintable(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
-				length += _putnbr(va_arg(args, int), flags);
+				length += _putnbr(_va_arg(args, flags.lenMod), flags);
 			else if (_isinstr("buoxX", *format))
-				length += _putbase(va_arg(args, unsigned int), *format, flags);
+				length += _putbase(_uva_arg(args, flags.lenMod), *format, flags);
 			else if (*format == 'p')
 				length += _putAddress(va_arg(args, unsigned long int), &flags);
 			else if (*format == '%')

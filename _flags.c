@@ -9,6 +9,7 @@ void resetFlags(t_flag *flags)
 	flags->plus = false;
 	flags->sharp = false;
 	flags->spc = false;
+	flags->lenMod = '\0';
 }
 /**
  * getFlags - getFlags
@@ -25,6 +26,8 @@ void getFlags(const char **format, t_flag *flags)
 			flags->spc = 1;
 		else if (**format == '#')
 			flags->sharp = 1;
+		else if (_isinstr("lh", **format) && _isinstr("diuoxX", **(format + 1)))
+			flags->lenMod = **format;
 		(*format)++;
 	}
 }

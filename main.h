@@ -13,12 +13,14 @@
  * @sharp: sharp flag
  * @spc: spc flag
  * @plus: plus flag
+ * @lenMod: length modifiers
  */
 typedef struct s_flag
 {
 	bool sharp;
 	bool spc;
 	bool plus;
+	char lenMod;
 } t_flag;
 
 int _putchar(char c);
@@ -35,4 +37,6 @@ int _putAddress(unsigned long int address, t_flag *flags);
 void getFlags(const char **format, t_flag *flags);
 int _putbase(unsigned long int n, char base, t_flag flags);
 void resetFlags(t_flag *flags);
+int long _va_arg(va_list ap, char type);
+unsigned int long _uva_arg(va_list ap, char type);
 #endif
