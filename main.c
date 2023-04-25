@@ -9,13 +9,14 @@
  */
 int main(void)
 {
-	int a;
+
 	int _len;
 	int len;
-	a = 5;
-	_len = _printf("%p\n", &a);
-	len = printf("%p\n", &a);
 
-	printf("len = %d, _len = %d", len, _len);
+
+	_len = _printf("%p\n", NULL);
+	len = printf("%p\n", NULL);
+
+	printf("len = %d, _len = %d\n", len, _len);
 	return (0);
 }

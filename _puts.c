@@ -79,6 +79,8 @@ int _putsNonPrintable(char *str)
 
 int _putsAddress(unsigned long int address)
 {
+	if (address == 0)
+		return (_puts("(nil)"));
 	_puts("0x");
 	return (2 + _puts(_uitoa_base(address, 'x')));
 }
