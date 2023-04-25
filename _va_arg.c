@@ -5,14 +5,14 @@
  * @type: type l or h
  * Return: va_arg conversion
  */
-long _va_arg(va_list ap, char type)
+long int _va_arg(va_list ap, char type)
 {
 	if (type == '\0')
 		return (va_arg(ap, int));
 	if (type == 'h')
-		return ((short)va_arg(ap, int));
+		return (va_arg(ap, short int));
 	if (type == 'l')
-		return (va_arg(ap, long));
+		return (va_arg(ap, long int));
 	return (0);
 }
 
@@ -22,13 +22,13 @@ long _va_arg(va_list ap, char type)
  * @type: type l or h
  * Return: va_arg conversion
  */
-unsigned long _uva_arg(va_list ap, char type)
+unsigned long int _uva_arg(va_list ap, char type)
 {
 	if (type == '\0')
 		return (va_arg(ap, unsigned int));
 	if (type == 'h')
-		return ((unsigned short)va_arg(ap, unsigned int));
+		return (va_arg(ap, unsigned short int));
 	if (type == 'l')
-		return (va_arg(ap, unsigned long));
+		return (va_arg(ap, unsigned long int));
 	return (0);
 }
