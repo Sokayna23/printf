@@ -70,24 +70,3 @@ int _putsNonPrintable(char *str)
 	}
 	return (len);
 }
-/**
- * _puts_address - prints address of a variable
- * @ptr: a pointer 
- * Return: number of characters printed
- */
-int _puts_address(void *ptr)
-{
-	char hex_str[17];
-	int i;
-
-	for (i = 0; i <= 15; i++)
-	{
-		if (ptr[i] < 10)
-			hex_str[i] = '0' + ptr[i];
-		else
-			hex_str[i] = 'a' + ptr[i] - 10;
-		_putchar(hex_str[i]);
-	}
-	hex_str[16] = '\0';
-	return (_strlen(hex_str));
-}
