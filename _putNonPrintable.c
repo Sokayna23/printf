@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * _putsNonPrintable- puts non printable
+ * _putNonPrintable- puts non printable
  * @str: str
  * Return: nb char printed.
  */
 
-int _putsNonPrintable(char *str)
+int _putNonPrintable(char *str)
 {
 	int len = 0;
 	char *HexChar;

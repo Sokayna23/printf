@@ -28,13 +28,13 @@ int _printf(const char *format, ...)
 			else if ((*format == 's'))
 				length += _puts(va_arg(args, char *));
 			else if ((*format == 'S'))
-				length += _putsNonPrintable(va_arg(args, char *));
+				length += _putNonPrintable(va_arg(args, char *));
 			else if (*format == 'd' || *format == 'i')
 				length += _putnbr(va_arg(args, int), flags);
 			else if (_isinstr("buoxX", *format))
 				length += _putbase(va_arg(args, unsigned long int), *format, flags);
 			else if (*format == 'p')
-				length += _putsAddress(va_arg(args, unsigned long int), &flags);
+				length += _putAddress(va_arg(args, unsigned long int), &flags);
 			else if (*format == '%')
 				length += _putchar(*format);
 			else

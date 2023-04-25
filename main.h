@@ -30,8 +30,8 @@ char *_uitoa_base(unsigned long int n, int base);
 int _isinstr(char *str, char toFind);
 void _to_upper(char *s);
 int _isprintable(char c);
-int _putsNonPrintable(char *str);
-int _putsAddress(unsigned long int address, t_flag *flags);
+int _putNonPrintable(char *str);
+int _putAddress(unsigned long int address, t_flag *flags);
 void getFlags(const char **format, t_flag *flags);
 int _putbase(unsigned long int n, char base, t_flag flags);
 #endif
