@@ -13,6 +13,8 @@
  * @sharp: sharp flag
  * @spc: spc flag
  * @plus: plus flag
+ * @zero: zero flag
+ * @width : field width
  * @lenMod: length modifiers
  */
 typedef struct s_flag
@@ -21,13 +23,16 @@ typedef struct s_flag
 	bool spc;
 	bool plus;
 	char lenMod;
+	bool zero;
+	int width;
 } t_flag;
 
 int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *s);
 int _printf(const char *format, ...);
-int _putnbr(long int n, t_flag flags);
+int _putnbr(long int n, bool isToPut);
+int _putd(long int n, t_flag flags);
 char *_uitoa_base(unsigned long int n, int base);
 int _isinstr(char *str, char toFind);
 void _to_upper(char *s);
@@ -39,4 +44,5 @@ int _putbase(unsigned long int n, char base, t_flag flags);
 void resetFlags(t_flag *flags);
 long int _va_arg(va_list ap, char type);
 unsigned long int _uva_arg(va_list ap, char type);
+int _atoi(const char *str);
 #endif
