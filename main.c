@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-	len = printf("%05+5d\n", 54);
-	_len = _printf("%05+5d\n", 54);
+	len = printf("%#8X\n", 54);
+	_len = _printf("%#8X\n", 54);
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }
