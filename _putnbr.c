@@ -8,7 +8,7 @@
  */
 int _putnbr(long int n, t_flag flags)
 {
-	unsigned int a = n;
+	unsigned long int a = n;
 	int len = 0;
 
 	if (n < 0)
