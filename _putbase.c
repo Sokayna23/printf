@@ -21,7 +21,7 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 	else if (toBase == 'x' || toBase == 'X')
 		base = 16;
 	result = _uitoa_base(n, base);
-	len += strlen(result);
+	len += _strlen(result);
 	if (toBase == 'X')
 		_to_upper(result);
 	if (flags.sharp && base == 16 && n)
