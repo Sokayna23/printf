@@ -6,7 +6,7 @@
  * @flags : flags
  * Return: nb char of n
  */
-int _putnbr(int n, t_flag flags)
+int _putnbr(long int n, t_flag flags)
 {
 	unsigned int a = n;
 	int len = 0;
