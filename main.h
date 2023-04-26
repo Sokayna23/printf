@@ -31,7 +31,7 @@ int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *s);
 int _printf(const char *format, ...);
-int _putnbr(long int n, bool isToPut);
+int _putnbr(unsigned long int a, bool isToPut);
 int _putd(long int n, t_flag flags);
 char *_uitoa_base(unsigned long int n, int base);
 int _isinstr(char *str, char toFind);

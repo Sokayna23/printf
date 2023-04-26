@@ -2,20 +2,14 @@
 
 /**
  * _putnbr - print or len number.
- * @n: integer
+ * @a: integer
  * @isToPut : isToPut
  * Return: nb char of n
  */
-int _putnbr(long int n, bool isToPut)
+int _putnbr(unsigned long int a, bool isToPut)
 {
-	unsigned long int a = n;
 	int len = 0;
 
-	if (n < 0)
-	{
-		len += _putchar('-');
-		a = -a;
-	}
 	if (a / 10)
 		len += _putnbr(a / 10, isToPut);
 	len += isToPut ? _putchar(a % 10 + '0') : 1;
