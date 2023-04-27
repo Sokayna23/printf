@@ -50,11 +50,11 @@ void getFlags(const char **frm, t_flag *flags)
 		while (**frm && _isinstr("123456789", **frm))
 			(*frm)++;
 	}
-	if (**frm && _isinstr("lh", **frm) && _isinstr("diuoxX", *(*frm + 1)))
+	if (**frm && !_isinstr("lhcsSdiuoxXbp%", **frm))
+		*frm = ptr;
+	else if (**frm && _isinstr("lh", **frm))
 	{
 		flags->lenMod = **frm;
-		(*frm)++;
+		*frm += (!*(*frm + 1) || _isinstr("csSdiuoxXbp%", *(*frm + 1))) ? 1 : 0;
 	}
-	if (**frm && !_isinstr("csSdiuoxXbp%", **frm))
-		*frm = ptr;
 }

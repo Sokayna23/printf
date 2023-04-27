@@ -8,7 +8,7 @@
 
 int _isinstr(char *str, char toFind)
 {
-	while (*str)
+	while (str && *str)
 	{
 		if (*str == toFind)
 			return (1);
