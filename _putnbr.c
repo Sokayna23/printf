@@ -39,11 +39,11 @@ int _putd(long int n, t_flag flags)
 		sign = ' ';
 	len += sign ? 1 : 0;
 	len += _putnbr(a, false);
-	if (flags.zero)
+	if (flags.zero && sign)
 		_putchar(sign);
 	while (len < flags.width)
 		len += _putchar(flags.zero ? '0' : ' ');
-	if (!flags.zero)
+	if (!flags.zero && sign)
 		_putchar(sign);
 	_putnbr(a, true);
 	return (len);
