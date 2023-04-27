@@ -9,27 +9,12 @@
  */
 int main(void)
 {
-	int _len;
+	int _len, len;
+	long l = INT_MAX;
 
-	_len = _printf("%d ",55);
-	printf("_len = %d\n", _len);
-		
-	/*len = printf("lllkki %d % 4488", 55);
-	fflush(stdout);
-	if (_len != len)
-	{
-		printf("_lengths differ\n_len = %d\nlen =%d.\n", _len, len);
-		fflush(stdout);
-		return (1);
-	}
-	_len = _printf("% % % % ");
-	len = printf("% % % % ");
-	fflush(stdout);
-	if (_len != len)
-	{
-		printf("Lengths differ2.\n");
-		fflush(stdout);
-		return (1);
-	}*/
+	l += 1024;
+	_len = _printf("iddi%diddiiddi\n", 1024);
+	len = printf("iddi%diddiiddi\n", 1024);
+	printf("\n_len = %d\n len = %d\n", _len, len);
 	return (0);
 }
