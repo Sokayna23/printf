@@ -21,9 +21,6 @@ void resetFlags(t_flag *flags)
  */
 void getFlags(const char **frm, t_flag *flags)
 {
-	const char *ptr;
-
-	ptr = *frm;
 	while (**frm && _isinstr("+ #0", **frm))
 	{
 		if (**frm == '+')
@@ -55,6 +52,4 @@ void getFlags(const char **frm, t_flag *flags)
 		flags->lenMod = **frm;
 		(*frm)++;
 	}
-	if (**frm && !_isinstr("csSdiuoxXbp%", **frm))
-		*frm = ptr;
 }

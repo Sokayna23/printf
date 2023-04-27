@@ -9,12 +9,10 @@
  */
 int main(void)
 {
-	int _len, len;
-	long l = INT_MAX;
+	int len, len2;
 
-	l += 1024;
-	_len = _printf("iddi%diddiiddi\n", 1024);
-	len = printf("iddi%diddiiddi\n", 1024);
-	printf("\n_len = %d\n len = %d\n", _len, len);
+	len = _printf("%d%s", 333, "Test");
+	len2 = printf("\0");
+	printf("\nlen = %d\n_len = %d\n", len2, len);
 	return (0);
 }
