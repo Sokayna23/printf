@@ -8,9 +8,8 @@
  */
 int getConversion(const char *format, va_list args, t_flag *flags)
 {
-	int length;
+	int length = 0;
 
-	length = 0;
 	if (*format == 'c')
 		length = _putchar(va_arg(args, int));
 	else if ((*format == 's'))
