@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			resetFlags(&flags);
-			getFlags(&format, &flags);
+			getFlags(&format, &flags, args);
 			if (_isinstr("lhcsSdibuoxXp%", *format))
 				length += getConversion(format, args, &flags);
 			else if (*format)

@@ -17,9 +17,10 @@ void resetFlags(t_flag *flags)
 /**
  * getFlags - getFlags
  * @frm: format
+ * @args: args
  * @flags: flags
  */
-void getFlags(const char **frm, t_flag *flags)
+void getFlags(const char **frm, t_flag *flags, va_list args)
 {
 	const char *ptr;
 
@@ -36,10 +37,10 @@ void getFlags(const char **frm, t_flag *flags)
 			flags->zero = true;
 		(*frm)++;
 	}
-	if (**frm && _isinstr("123456789", **frm))
+	if (**frm && _isinstr("*123456789", **frm))
 	{
-		flags->width = _atoi(*frm);
-		while (**frm && _isinstr("123456789", **frm))
+		flags->width = **frm == '*' ? va_arg(args, int) : _atoi(*frm);
+		while (**frm && _isinstr("*123456789", **frm))
 			(*frm)++;
 		if (!_isinstr(".csSdiuoxXbp%", *(*frm)))
 			flags->width = 0;
