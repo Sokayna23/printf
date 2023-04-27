@@ -47,7 +47,7 @@ void getFlags(const char **frm, t_flag *flags)
 		while (**frm && _isinstr("123456789", **frm))
 			(*frm)++;
 	}
-	if (**frm && _isinstr("lh", **frm) && _isinstr("diuoxX", *(*frm + 1)))
+	if (_isinstr("lh", **frm) && _isinstr("diuoxX", *(*frm + 1)))
 	{
 		flags->lenMod = **frm;
 		(*frm)++;
