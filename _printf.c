@@ -26,10 +26,8 @@ int _printf(const char *format, ...)
 			getFlags(&format, &flags);
 			if (_isinstr("csSdibuoxXp%", *format))
 				length += getConversion(format, args, &flags);
-			else if (*format)
-				length += write(1, format - 1, 2);
 			else
-				return (-1);
+				length += write(1, format - 1, 2);
 		}
 		else
 			length += write(1, format, 1);
