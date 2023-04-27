@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("In the middle %*d of a sentence.\n", 6, 1024); 
-	_len = _printf("In the middle %*d of a sentence.\n", 6, 1024);
+    len = printf("%.0x", 0); 
+	_len = _printf("%.0x", 0);
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }

@@ -16,6 +16,7 @@
  * @zero: zero flag
  * @width : field width
  * @precision: precision
+ * @isPrecision: isPrecision
  * @lenMod: length modifiers
  */
 typedef struct s_flag
@@ -26,7 +27,8 @@ typedef struct s_flag
 	char lenMod;
 	bool zero;
 	int width;
-	int precision;
+	bool isPrcs;
+	int prcs;
 } t_flag;
 
 int _putchar(char c);

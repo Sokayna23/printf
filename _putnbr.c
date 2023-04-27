@@ -25,7 +25,7 @@ int _putnbr(unsigned long int a, bool isToPut)
 int _putd(long int n, t_flag flags)
 {
 	unsigned long int a = n;
-	int len = 0;
+	int len = 0, lenNbr;
 	char sign = '\0';
 
 	if (n < 0)
@@ -37,14 +37,20 @@ int _putd(long int n, t_flag flags)
 		sign = '+';
 	else if (flags.spc)
 		sign = ' ';
+	lenNbr = _putnbr(a, false);
+	len = flags.prcs > lenNbr ? flags.prcs : lenNbr;
 	len += sign ? 1 : 0;
-	len += _putnbr(a, false);
-	if (flags.zero && sign)
+	if ((flags.zero && sign) || (flags.isPrcs && sign))
 		_putchar(sign);
 	while (len < flags.width)
-		len += _putchar(flags.zero ? '0' : ' ');
-	if (!flags.zero && sign)
+		len += _putchar(flags.zero && !flags.isPrcs ? '0' : ' ');
+	while (flags.prcs >= lenNbr)
+		_putchar('0'), flags.prcs--;
+	if (!flags.zero && sign && !flags.isPrcs)
 		_putchar(sign);
-	_putnbr(a, true);
+	if ((flags.isPrcs && !flags.prcs && n) || flags.prcs || !flags.isPrcs)
+		_putnbr(a, true);
+	else
+		len--;
 	return (len);
 }

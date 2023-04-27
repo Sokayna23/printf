@@ -9,8 +9,7 @@
 int _putbase(unsigned long int n, char toBase, t_flag flags)
 {
 	char *result;
-	int len = 0;
-	int base = 10;
+	int len = 0, lenResult, base = 10;
 
 	if (toBase == 'b')
 		base = 2;
@@ -21,7 +20,8 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 	else if (toBase == 'x' || toBase == 'X')
 		base = 16;
 	result = _uitoa_base(n, base);
-	len += _strlen(result);
+	lenResult = _strlen(result);
+	len = lenResult > flags.prcs ? lenResult : flags.prcs;
 	if (toBase == 'X')
 		_to_upper(result);
 	if (flags.sharp && base == 16 && n)
@@ -35,8 +35,13 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 	else if (flags.sharp && base == 8 && n)
 		_putchar('0');
 	while (flags.zero && len < flags.width)
-		len += _putchar(flags.zero ? '0' : ' ');
-	_puts(result, NULL);
+		len += _putchar(flags.zero && !flags.isPrcs ? '0' : ' ');
+	while (flags.prcs > lenResult)
+		_putchar('0'), flags.prcs--;
+	if ((flags.isPrcs && !flags.prcs && n) || flags.prcs || !flags.isPrcs)
+		_puts(result, NULL);
+	else
+		len--;
 	free(result);
 	return (len);
 }
