@@ -12,7 +12,7 @@ int _putAddress(unsigned long int address, t_flag *flags)
 	int len = 0;
 
 	if (address == 0)
-		return (_puts("(nil)"));
+		return (_puts("(nil)", NULL));
 	flags->sharp = true;
 	if (flags->plus)
 		len += _putchar('+');

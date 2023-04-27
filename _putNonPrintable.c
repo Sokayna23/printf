@@ -13,7 +13,7 @@ int _putNonPrintable(char *str)
 
 	ptr = str;
 	if (!ptr)
-		return (_puts("(null)"));
+		return (_puts("(null)", NULL));
 	while (*ptr)
 	{
 		if (_isprintable(*ptr))

@@ -3,30 +3,34 @@
 /**
  * _puts- _puts printable
  * @str: str
+ * @flags: Flags
  * Return: nb char printed.
  */
 
-int _puts(char *str)
+int _puts(char *str, t_flag *flags)
 {
-	int len;
+	int len, i;
 	char *ptr;
 
 	ptr = str;
 	if (!ptr)
-		return (_puts("(null)"));
+		return (_puts("(null)", flags));
+	len = _strlen(ptr);
+	while (flags && len < flags->width)
+		len += _putchar(' ');
 	while (*ptr)
 	{
-		len = _strlen(ptr);
-		if (len >= BUFFER_SIZE)
+		i = _strlen(ptr);
+		if (i >= BUFFER_SIZE)
 		{
 			write(1, ptr, BUFFER_SIZE);
 			ptr += BUFFER_SIZE;
 		}
 		else
 		{
-			write(1, ptr, len);
-			return (_strlen(str));
+			write(1, ptr, i);
+			return (len);
 		}
 	}
-	return (_strlen(str));
+	return (len);
 }

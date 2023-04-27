@@ -30,7 +30,7 @@ typedef struct s_flag
 } t_flag;
 
 int _putchar(char c);
-int _puts(char *str);
+int _puts(char *str, t_flag *flags);
 int _strlen(char *s);
 int _printf(const char *format, ...);
 int _putnbr(unsigned long int a, bool isToPut);
@@ -48,4 +48,5 @@ long int _va_arg(va_list ap, char type);
 unsigned long int _uva_arg(va_list ap, char type);
 int _atoi(const char *str);
 int getConversion(const char *format, va_list args, t_flag *flags);
+int _putc(char c, t_flag flags);
 #endif

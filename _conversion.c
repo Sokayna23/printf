@@ -11,9 +11,9 @@ int getConversion(const char *format, va_list args, t_flag *flags)
 	int length = 0;
 
 	if (*format == 'c')
-		length = _putchar(va_arg(args, int));
+		length = _putc(va_arg(args, int), *flags);
 	else if ((*format == 's'))
-		length = _puts(va_arg(args, char *));
+		length = _puts(va_arg(args, char *), flags);
 	else if ((*format == 'S'))
 		length = _putNonPrintable(va_arg(args, char *));
 	else if (*format == 'd' || *format == 'i')

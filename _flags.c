@@ -41,7 +41,7 @@ void getFlags(const char **frm, t_flag *flags)
 		flags->width = _atoi(*frm);
 		while (**frm && _isinstr("123456789", **frm))
 			(*frm)++;
-		if (!_isinstr(".lhdiuoxX", *(*frm)))
+		if (!_isinstr(".csSdiuoxXbp%", *(*frm)))
 			flags->width = 0;
 	}
 	if (**frm == '.' && _isinstr("123456789", **frm))
