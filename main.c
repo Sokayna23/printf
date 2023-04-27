@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("%hltt"); 
-	_len = _printf("%hltt");
+    len = printf("%8d", -1024); 
+	_len = _printf("%8d", -1024);
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }

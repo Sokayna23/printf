@@ -26,19 +26,25 @@ int _putd(long int n, t_flag flags)
 {
 	unsigned long int a = n;
 	int len = 0;
+	char sign = '\0';
 
 	if (n < 0)
 	{
-		len = _putchar('-');
+		sign = '-';
 		a = -a;
 	}
 	else if (flags.plus)
-		len = _putchar('+');
+		sign = '+';
 	else if (flags.spc)
-		len = _putchar(' ');
+		sign = ' ';
+	len += sign ? 1 : 0;
 	len += _putnbr(a, false);
+	if (flags.zero)
+		_putchar(sign);
 	while (len < flags.width)
 		len += _putchar(flags.zero ? '0' : ' ');
+	if (!flags.zero)
+		_putchar(sign);
 	_putnbr(a, true);
 	return (len);
 }
