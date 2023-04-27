@@ -12,6 +12,7 @@ void resetFlags(t_flag *flags)
 	flags->lenMod = '\0';
 	flags->width = 0;
 	flags->zero = false;
+	flags->precision = 0;
 }
 /**
  * getFlags - getFlags
@@ -20,6 +21,9 @@ void resetFlags(t_flag *flags)
  */
 void getFlags(const char **frm, t_flag *flags)
 {
+	const char *ptr;
+
+	ptr = *frm;
 	while (**frm && _isinstr("+ #0", **frm))
 	{
 		if (**frm == '+')
@@ -37,12 +41,20 @@ void getFlags(const char **frm, t_flag *flags)
 		flags->width = _atoi(*frm);
 		while (**frm && _isinstr("123456789", **frm))
 			(*frm)++;
-		if (!_isinstr("lhdiuoxX", *(*frm)))
+		if (!_isinstr(".lhdiuoxX", *(*frm)))
 			flags->width = 0;
+	}
+	if (**frm == '.' && _isinstr("123456789", **frm))
+	{
+		flags->precision = _atoi(*frm);
+		while (**frm && _isinstr("123456789", **frm))
+			(*frm)++;
 	}
 	if (**frm && _isinstr("lh", **frm) && _isinstr("diuoxX", *(*frm + 1)))
 	{
 		flags->lenMod = **frm;
 		(*frm)++;
 	}
+	if (**frm && !_isinstr("csSdiuoxXbp%", **frm))
+		*frm = ptr;
 }
