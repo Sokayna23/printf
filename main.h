@@ -47,4 +47,5 @@ void resetFlags(t_flag *flags);
 long int _va_arg(va_list ap, char type);
 unsigned long int _uva_arg(va_list ap, char type);
 int _atoi(const char *str);
+int getConversion(const char *format, va_list args, t_flag *flags);
 #endif

@@ -24,22 +24,12 @@ int _printf(const char *format, ...)
 			format++;
 			resetFlags(&flags);
 			getFlags(&format, &flags);
-			if (*format == 'c')
-				length += _putchar(va_arg(args, int));
-			else if ((*format == 's'))
-				length += _puts(va_arg(args, char *));
-			else if ((*format == 'S'))
-				length += _putNonPrintable(va_arg(args, char *));
-			else if (*format == 'd' || *format == 'i')
-				length += _putd(_va_arg(args, flags.lenMod), flags);
-			else if (_isinstr("buoxX", *format))
-				length += _putbase(_uva_arg(args, flags.lenMod), *format, flags);
-			else if (*format == 'p')
-				length += _putAddress(va_arg(args, unsigned long int), &flags);
-			else if (*format == '%')
-				length += _putchar(*format);
-			else
+			if (_isinstr("csSdibuoxXp%", *format))
+				length += getConversion(format, args, &flags);
+			else if (*format)
 				length += write(1, format - 1, 2);
+			else
+				return (-1);
 		}
 		else
 			length += write(1, format, 1);
@@ -51,8 +41,31 @@ int _printf(const char *format, ...)
 
 /**
  * getConversion - getConversion
+ * @format: format string
+ * @args: arguments
+ * @flags : flags
+ * Return: legth
  */
-void getConversion(void)
+int getConversion(const char *format, va_list args, t_flag *flags)
 {
+	int length;
 
+	length = 0;
+	if (*format == 'c')
+		length = _putchar(va_arg(args, int));
+	else if ((*format == 's'))
+		length = _puts(va_arg(args, char *));
+	else if ((*format == 'S'))
+		length = _putNonPrintable(va_arg(args, char *));
+	else if (*format == 'd' || *format == 'i')
+		length = _putd(_va_arg(args, flags->lenMod), *flags);
+	else if (_isinstr("buoxX", *format))
+		length = _putbase(_uva_arg(args, flags->lenMod), *format, *flags);
+	else if (*format == 'p')
+		length = _putAddress(va_arg(args, unsigned long int), flags);
+	else if (*format == '%')
+		length = _putchar(*format);
+	else
+		return (0);
+	return (length);
 }

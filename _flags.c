@@ -55,6 +55,6 @@ void getFlags(const char **frm, t_flag *flags)
 		flags->lenMod = **frm;
 		(*frm)++;
 	}
-	if (!_isinstr("csSdiuoxXbp%", **frm))
+	if (**frm && !_isinstr("csSdiuoxXbp%", **frm))
 		*frm = ptr;
 }
