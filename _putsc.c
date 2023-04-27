@@ -9,7 +9,7 @@
  */
 int _putc(char c, t_flag flags)
 {
-	int len = c ? 1 : 0;
+	int len = 1;
 
 	while (len < flags.width)
 		len += _putchar(' ');
