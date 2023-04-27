@@ -12,8 +12,12 @@ int main(void)
 	int len;
 	int _len;
 
-	len = printf("%0007x\n", -100);
-	_len = _printf("%0007x\n", -100);
+    len = printf("% \n");
+    _len = _printf("% \n");
+	printf(" len : %d\n_len : %d\n", len, _len);
+    
+	len = printf("% % % % \n");
+    _len = _printf("% % % % \n");
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }
