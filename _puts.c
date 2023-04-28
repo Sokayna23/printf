@@ -26,7 +26,7 @@ int _puts(char *str, t_flag *flags)
 		{
 			write(1, ptr, BUFFER_SIZE);
 			i -= BUFFER_SIZE;
-			ptr += i;
+			ptr += BUFFER_SIZE;
 		}
 		else
 		{
