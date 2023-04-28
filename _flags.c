@@ -52,7 +52,7 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 	if (**frm && **frm == '.')
 	{
 		flags->isPrcs = true;
-		flags->prcs = *(*frm + 1) == '*' ? va_arg(args, int) : _atoi(*frm);
+		flags->prcs = *(*frm + 1) == '*' ? va_arg(args, int) : _atoi(*frm + 1);
 		while (**frm && _isinstr(".*0123456789", **frm))
 			(*frm)++;
 	}

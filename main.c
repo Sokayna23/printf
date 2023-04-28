@@ -12,39 +12,57 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("%-6hd\n", 5);
-	len2 = printf("%-6hd\n", 5);
+	len = _printf("%6.6d;%6.6i\n%6.6d;%6.6i\n%6.6d;%6.6i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
+	len2 = printf("%6.6d;%6.6i\n%6.6d;%6.6i\n%6.6d;%6.6i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
 	fflush(stdout);
 	if (len != len2)
 	{
-		printf("Lengths differ1.\n");
+		printf("Lengths differ.1\n");
 		fflush(stdout);
 		return (1);
 	}
-	len = _printf("%-6hd;%-6hi\n%-6hd;%-6hi\n%-6hd;%-6hi\n", SHRT_MAX, SHRT_MAX, SHRT_MIN, SHRT_MIN, 0, 0);
-	len2 = printf("%-6hd;%-6hi\n%-6hd;%-6hi\n%-6hd;%-6hi\n", SHRT_MAX, SHRT_MAX, SHRT_MIN, SHRT_MIN, 0, 0);
+	len = _printf("%6.0d;%6.0i\n%6.0d;%6.0i\n%6.0d;%6.0i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
+	len2 = printf("%6.0d;%6.0i\n%6.0d;%6.0i\n%6.0d;%6.0i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
 	fflush(stdout);
 	if (len != len2)
 	{
-		printf("Lengths differ2.\n");
+		printf("Lengths differ.2\n");
 		fflush(stdout);
 		return (1);
 	}
-	len = _printf("%-6ld;%-6li\n%-6ld;%-6li\n", 98L, 98L, -98L, -98L);
-	len2 = printf("%-6ld;%-6li\n%-6ld;%-6li\n", 98L, 98L, -98L, -98L);
+	len = _printf("%6.d;%6.i\n%6.d;%6.i\n%6.d;%6.i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
+	len2 = printf("%6.d;%6.i\n%6.d;%6.i\n%6.d;%6.i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
 	fflush(stdout);
 	if (len != len2)
 	{
-		printf("Lengths differ3.\n");
+		printf("Lengths differ.3\n");
 		fflush(stdout);
 		return (1);
 	}
-	len = _printf("%-6hd;%-6hi\n%-6hd;%-6hi\n", 98, 98, -98, -98);
-	len2 = printf("%-6hd;%-6hi\n%-6hd;%-6hi\n", 98, 98, -98, -98);
+	len = _printf("%6.6d;%6.6i\n%6.6d;%6.6i\n", 98, 98, -98, -98);
+	len2 = printf("%6.6d;%6.6i\n%6.6d;%6.6i\n", 98, 98, -98, -98);
 	fflush(stdout);
 	if (len != len2)
 	{
-		printf("Lengths differ4.\n");
+		printf("Lengths differ.4\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%6.0d;%6.0i\n%6.0d;%6.0i\n", 98, 98, -98, -98);
+	len2 = printf("%6.0d;%6.0i\n%6.0d;%6.0i\n", 98, 98, -98, -98);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.5\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%6.d;%6.i\n%6.d;%6.i\n", 91, 92, -93, -94);
+	len2 = printf("%6.d;%6.i\n%6.d;%6.i\n", 91, 92, -93, -94);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.6\n");
 		fflush(stdout);
 		return (1);
 	}
