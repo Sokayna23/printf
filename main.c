@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("%s\n", "This sentence is retrieved from va_args!\n"); 
-	_len = _printf("%S", "This\n");
+    len = printf("%s\n", "test tetez"); 
+	_len = _printf("%s\n", "test tetez");
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }

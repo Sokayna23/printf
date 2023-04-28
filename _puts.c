@@ -20,17 +20,19 @@ int _puts(char *str, t_flag *flags)
 	i = len;
 	while (flags && !flags->bar && len < flags->width)
 		len += _putchar(' ');
-	while (i)
+	while (i > 0)
 	{
 		if (i >= BUFFER_SIZE)
 		{
 			write(1, ptr, BUFFER_SIZE);
 			i -= BUFFER_SIZE;
+			ptr += i;
 		}
 		else
 		{
 			write(1, ptr, i);
 			i = 0;
+			ptr += i;
 		}
 	}
 	while (flags && len < flags->width)
