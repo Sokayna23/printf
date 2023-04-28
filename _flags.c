@@ -43,7 +43,7 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 	}
 	if (**frm && _isinstr("*123456789", **frm))
 	{
-		flags->width = **frm == '*' ? va_arg(args, int) : _atoi(*frm);
+		flags->width = *(*frm + 1) == '*' ? va_arg(args, int) : _atoi(*frm);
 		while (**frm && _isinstr("*0123456789", **frm))
 			(*frm)++;
 		if (!_isinstr(".csSrRdiuoxXbp%", *(*frm)))
@@ -52,7 +52,7 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 	if (**frm && **frm == '.')
 	{
 		flags->isPrcs = true;
-		flags->prcs = **frm == '*' ? va_arg(args, int) : _atoi(*frm);
+		flags->prcs = *(*frm + 1)  == '*' ? va_arg(args, int) : _atoi(*frm);
 		while (**frm && _isinstr(".*0123456789", **frm))
 			(*frm)++;
 	}
@@ -63,5 +63,4 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 		flags->lenMod = **frm;
 		*frm += (!*(*frm + 1) || _isinstr("csSrRdiuoxXbp%", *(*frm + 1))) ? 1 : 0;
 	}
-
 }

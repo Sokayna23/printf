@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("Could you print some non-prntable characters?\nSure:\\x1F\\x7F\\x0A\nThanks!\n");
-	_len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+    len = printf("\n");
+	_len = _printf("In the middle %.*s of a sentence.\n", 6, "Best!");
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }
