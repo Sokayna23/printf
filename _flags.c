@@ -14,6 +14,7 @@ void resetFlags(t_flag *flags)
 	flags->zero = false;
 	flags->prcs = 0;
 	flags->isPrcs = false;
+	flags->bar = false;
 }
 /**
  * getFlags - getFlags
@@ -26,7 +27,7 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 	const char *ptr;
 
 	ptr = *frm;
-	while (**frm && _isinstr("+ #0", **frm))
+	while (**frm && _isinstr("+ #0-", **frm))
 	{
 		if (**frm == '+')
 			flags->plus = true;
@@ -36,6 +37,8 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 			flags->sharp = true;
 		else if (**frm == '0')
 			flags->zero = true;
+		else if (**frm == '-')
+			flags->bar = true;
 		(*frm)++;
 	}
 	if (**frm && _isinstr("*123456789", **frm))

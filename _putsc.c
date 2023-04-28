@@ -11,8 +11,10 @@ int _putc(char c, t_flag flags)
 {
 	int len = 1;
 
-	while (len < flags.width)
+	while (!flags.bar && len < flags.width)
 		len += _putchar(' ');
 	_putchar(c);
+	while (len < flags.width)
+		len += _putchar(' ');
 	return (len);
 }

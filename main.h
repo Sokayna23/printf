@@ -18,6 +18,7 @@
  * @prcs: precision
  * @isPrcs: isPrecision
  * @lenMod: length modifiers
+ * @bar: length modifiers
  */
 typedef struct s_flag
 {
@@ -29,6 +30,7 @@ typedef struct s_flag
 	int width;
 	bool isPrcs;
 	int prcs;
+	bool bar;
 } t_flag;
 
 int _putchar(char c);

@@ -42,7 +42,7 @@ int _putd(long int n, t_flag flags)
 	len += sign ? 1 : 0;
 	if ((flags.zero && sign) || (flags.isPrcs && sign))
 		_putchar(sign);
-	while (len < flags.width)
+	while (!flags.bar && len < flags.width)
 		len += _putchar(flags.zero && !flags.isPrcs ? '0' : ' ');
 	while (flags.prcs >= lenNbr)
 		_putchar('0'), flags.prcs--;
@@ -52,5 +52,7 @@ int _putd(long int n, t_flag flags)
 		_putnbr(a, true);
 	else
 		len--;
+	while (len < flags.width)
+		len += _putchar(flags.zero && !flags.isPrcs ? '0' : ' ');
 	return (len);
 }

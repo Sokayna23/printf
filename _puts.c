@@ -16,7 +16,7 @@ int _puts(char *str, t_flag *flags)
 	if (!ptr)
 		return (_puts("(null)", flags));
 	len = _strlen(ptr);
-	while (flags && len < flags->width)
+	while (flags && !flags->bar && len < flags->width)
 		len += _putchar(' ');
 	while (*ptr)
 	{
@@ -29,8 +29,10 @@ int _puts(char *str, t_flag *flags)
 		else
 		{
 			write(1, ptr, i);
-			return (len);
+			ptr += i;
 		}
 	}
+	while (flags && len < flags->width)
+		len += _putchar(' ');
 	return (len);
 }

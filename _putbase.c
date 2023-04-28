@@ -28,7 +28,7 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 		len += 2;
 	else if (flags.sharp && base == 8 && n)
 		len += 1;
-	while (!flags.zero && len < flags.width)
+	while (!flags.zero && len < flags.width && !flags.bar)
 		len += _putchar(' ');
 	if (flags.sharp && base == 16 && n)
 		_puts(toBase == 'X' ? "0X" : "0x", NULL);
@@ -42,6 +42,8 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 		_puts(result, NULL);
 	else
 		len--;
+	while (!flags.zero && len < flags.width)
+		len += _putchar(' ');
 	free(result);
 	return (len);
 }
