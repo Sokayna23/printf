@@ -15,8 +15,8 @@
  * @plus: plus flag
  * @zero: zero flag
  * @width : field width
- * @precision: precision
- * @isPrecision: isPrecision
+ * @prcs: precision
+ * @isPrcs: isPrecision
  * @lenMod: length modifiers
  */
 typedef struct s_flag
@@ -52,4 +52,5 @@ int _atoi(const char *str);
 int getConversion(const char *format, va_list args, t_flag *flags);
 int _putc(char c, t_flag flags);
 int _putrevstring(char *s);
+int _rot13(char *str);
 #endif

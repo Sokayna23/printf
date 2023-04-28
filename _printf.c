@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 			format++;
 			resetFlags(&flags);
 			getFlags(&format, &flags, args);
-			if (_isinstr("lhcrsSdibuoxXp%", *format))
+			if (_isinstr("lhcrRsSdibuoxXp%", *format))
 				length += getConversion(format, args, &flags);
 			else if (*format)
 				length += write(1, format - 1, 2);

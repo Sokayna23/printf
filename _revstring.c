@@ -15,6 +15,7 @@ int _putrevstring(char *s)
 	revstr = malloc(len + 1);
 	if (!revstr)
 		exit(98);
+	revstr[len] = '\0';
 	while (--len >= 0)
 		revstr[len] = *s++;
 	len = _puts(revstr, NULL);

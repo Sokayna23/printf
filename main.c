@@ -13,7 +13,7 @@ int main(void)
 	int _len;
 
     len = printf("\n"); 
-	_len = _printf("%r", "\nThis sentence is retrieved from va_args!");
+	_len = _printf("%R", "Guvf fragrapr vf ergevrirq sebz in_netf!\n");
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }
