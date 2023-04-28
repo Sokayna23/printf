@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("\n");
-	_len = _printf("In the middle %.*s of a sentence.\n", 6, "Best!");
+    len = printf("%.6u", 102498402);
+	_len = _printf("%.6u", 102498402);
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }

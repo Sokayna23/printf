@@ -44,7 +44,7 @@ int _putd(long int n, t_flag flags)
 		_putchar(sign);
 	while (!flags.bar && len < flags.width)
 		len += _putchar(flags.zero && !flags.isPrcs ? '0' : ' ');
-	while (flags.prcs >= lenNbr)
+	while (flags.prcs > lenNbr)
 		_putchar('0'), flags.prcs--;
 	if (!flags.zero && sign && !flags.isPrcs)
 		_putchar(sign);
