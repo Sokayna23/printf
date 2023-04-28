@@ -40,7 +40,7 @@ int _putd(long int n, t_flag flags)
 	lenNbr = _putnbr(a, false);
 	len = flags.prcs > lenNbr ? flags.prcs : lenNbr;
 	len += sign ? 1 : 0;
-	if ((!flags.width && sign) || (!flags.isPrcs && sign))
+	if (flags.width && flags.zero && sign && !flags.isPrcs)
 	{
 		_putchar(sign);
 		sign = '\0';
