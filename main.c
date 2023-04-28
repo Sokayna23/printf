@@ -12,57 +12,12 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("%6.6d;%6.6i\n%6.6d;%6.6i\n%6.6d;%6.6i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
-	len2 = printf("%6.6d;%6.6i\n%6.6d;%6.6i\n%6.6d;%6.6i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
+	len = _printf("In the middle %0.6X of a sentence.\n", 1024);
+	len2 = printf("In the middle %0.6X of a sentence.\n", 1024);
 	fflush(stdout);
 	if (len != len2)
 	{
-		printf("Lengths differ.1\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%6.0d;%6.0i\n%6.0d;%6.0i\n%6.0d;%6.0i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
-	len2 = printf("%6.0d;%6.0i\n%6.0d;%6.0i\n%6.0d;%6.0i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.2\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%6.d;%6.i\n%6.d;%6.i\n%6.d;%6.i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
-	len2 = printf("%6.d;%6.i\n%6.d;%6.i\n%6.d;%6.i\n", INT_MAX, INT_MAX, INT_MIN, INT_MIN, 0, 0);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.3\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%6.6d;%6.6i\n%6.6d;%6.6i\n", 98, 98, -98, -98);
-	len2 = printf("%6.6d;%6.6i\n%6.6d;%6.6i\n", 98, 98, -98, -98);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.4\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%6.0d;%6.0i\n%6.0d;%6.0i\n", 98, 98, -98, -98);
-	len2 = printf("%6.0d;%6.0i\n%6.0d;%6.0i\n", 98, 98, -98, -98);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.5\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%6.d;%6.i\n%6.d;%6.i\n", 91, 92, -93, -94);
-	len2 = printf("%6.d;%6.i\n%6.d;%6.i\n", 91, 92, -93, -94);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.6\n");
+		printf("Lengths differ.\n");
 		fflush(stdout);
 		return (1);
 	}
