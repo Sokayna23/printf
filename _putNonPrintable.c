@@ -16,7 +16,7 @@ int _putNonPrintable(char *str, t_flag *flags)
 	if (!ptr)
 		return (_puts("(null)", flags));
 	len = _strlen(str);
-	len = (flags->isPrcs && len > flags->prcs) ? flags->prcs : len;
+	len = (flags && flags->isPrcs && len > flags->prcs) ? flags->prcs : len;
 	i = len;
 	while (flags && !flags->bar && len < flags->width)
 		len += _putchar(' ');
