@@ -1,20 +1,52 @@
-#include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 
 /**
  * main - Entry point
  *
- * Return: Always 0
+ * Return: 0 on success, error code otherwise
  */
 int main(void)
 {
-	int len;
-	int _len;
+	int len, len2;
 
-	_len = _printf("%+*d;%+*i\n%+*d;%+*i\n%+*d;%+*i\n", 6, INT_MAX, 6, INT_MAX, 6, INT_MIN, 6, INT_MIN, 6, 0, 6, 0);
-    len = printf("%+*d;%+*i\n%+*d;%+*i\n%+*d;%+*i\n", 6, INT_MAX, 6, INT_MAX, 6, INT_MIN, 6, INT_MIN, 6, 0, 6, 0);
-
-	printf("\nlen : %d\n_len : %d\n", len, _len);
+	len = _printf("%-6hd\n", 5);
+	len2 = printf("%-6hd\n", 5);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ1.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%-6hd;%-6hi\n%-6hd;%-6hi\n%-6hd;%-6hi\n", SHRT_MAX, SHRT_MAX, SHRT_MIN, SHRT_MIN, 0, 0);
+	len2 = printf("%-6hd;%-6hi\n%-6hd;%-6hi\n%-6hd;%-6hi\n", SHRT_MAX, SHRT_MAX, SHRT_MIN, SHRT_MIN, 0, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ2.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%-6ld;%-6li\n%-6ld;%-6li\n", 98L, 98L, -98L, -98L);
+	len2 = printf("%-6ld;%-6li\n%-6ld;%-6li\n", 98L, 98L, -98L, -98L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ3.\n");
+		fflush(stdout);
+		return (1);
+	}
+	len = _printf("%-6hd;%-6hi\n%-6hd;%-6hi\n", 98, 98, -98, -98);
+	len2 = printf("%-6hd;%-6hi\n%-6hd;%-6hi\n", 98, 98, -98, -98);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ4.\n");
+		fflush(stdout);
+		return (1);
+	}
 	return (0);
 }

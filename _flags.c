@@ -46,13 +46,13 @@ void getFlags(const char **frm, t_flag *flags, va_list args)
 		flags->width = **frm == '*' ? va_arg(args, int) : _atoi(*frm);
 		while (**frm && _isinstr("*0123456789", **frm))
 			(*frm)++;
-		if (!_isinstr(".csSrRdiuoxXbp%", *(*frm)))
+		if (!_isinstr(".csSrRdlhiuoxXbp%", *(*frm)))
 			flags->width = 0;
 	}
 	if (**frm && **frm == '.')
 	{
 		flags->isPrcs = true;
-		flags->prcs = *(*frm + 1)  == '*' ? va_arg(args, int) : _atoi(*frm);
+		flags->prcs = *(*frm + 1) == '*' ? va_arg(args, int) : _atoi(*frm);
 		while (**frm && _isinstr(".*0123456789", **frm))
 			(*frm)++;
 	}
