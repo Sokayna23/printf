@@ -34,7 +34,7 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 		_puts(toBase == 'X' ? "0X" : "0x", NULL);
 	else if (flags.sharp && base == 8 && n)
 		_putchar('0');
-	while (flags.zero && len < flags.width)
+	while (!flags.zero && len < flags.width && !flags.bar)
 		len += _putchar(flags.zero && !flags.isPrcs ? '0' : ' ');
 	while (flags.prcs > lenResult)
 		_putchar('0'), flags.prcs--;
@@ -42,7 +42,7 @@ int _putbase(unsigned long int n, char toBase, t_flag flags)
 		_puts(result, NULL);
 	else
 		len--;
-	while (!flags.zero && len < flags.width)
+	while (len < flags.width)
 		len += _putchar(' ');
 	free(result);
 	return (len);

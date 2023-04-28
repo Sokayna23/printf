@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("%.6u", 102498402);
-	_len = _printf("%.6u", 102498402);
+    len = printf("pt |%0-.16x|\n", 102498402);
+	_len = _printf("_pt|%0-.16x|\n", 102498402);
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }
