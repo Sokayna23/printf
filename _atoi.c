@@ -13,7 +13,7 @@ int _atoi(const char *str)
 	i = 0;
 	neg = 1;
 	nb = 0;
-	while (str && str[i] && (str[i] == '0' || str[i] == ' '))
+	while (str && str[i] && (str[i] == '0'))
 		i++;
 	if (!_isinstr("-0123456789", str[i]))
 		return (0);
@@ -26,5 +26,5 @@ int _atoi(const char *str)
 		nb = (nb * 10) + ((int)str[i] - '0');
 		i++;
 	}
-	return (nb * neg);
+	return (nb);
 }
