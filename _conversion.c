@@ -22,6 +22,8 @@ int getConversion(const char *format, va_list args, t_flag *flags)
 		length = _putbase(_uva_arg(args, flags->lenMod), *format, *flags);
 	else if (*format == 'p')
 		length = _putAddress(va_arg(args, unsigned long int), flags);
+	else if (*format == 'r')
+		length = _putrevstring(va_arg(args, char *));
 	else if (*format == '%')
 		length = _putchar(*format);
 	else if (flags->lenMod)
