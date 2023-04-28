@@ -13,6 +13,8 @@ int _rot13(char *s)
 	if (!s)
 		return (_rot13("(null)"));
 	newStr = malloc(strlen(s) + 1);
+	if (!newStr)
+		exit(-98);
 	newStr[strlen(s)] = '\0';
 	if (!newStr)
 		exit(-98);

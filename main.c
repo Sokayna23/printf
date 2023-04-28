@@ -9,11 +9,16 @@
  */
 int main(void)
 {
-	int len;
-	int _len;
+	int len, len2;
 
-    len = printf("\n"); 
-	_len = _printf("%R", "Guvf fragrapr vf ergevrirq sebz in_netf!\n");
-	printf(" len : %d\n_len : %d\n", len, _len);
+	len = _printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
+	len2 = printf("Complete the sentence: You  nothing, Jon Snow.\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	return (0);
 }
