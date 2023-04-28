@@ -12,8 +12,8 @@ int main(void)
 {
 	int len, len2;
 
-	len = _printf("In the middle %0.6X of a sentence.\n", 1024);
-	len2 = printf("In the middle %0.6X of a sentence.\n", 1024);
+	len = _printf("%012d\n",-42);
+	len2 = printf("%012d\n",-42);
 	fflush(stdout);
 	if (len != len2)
 	{
