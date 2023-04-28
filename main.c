@@ -12,8 +12,8 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("%b", UINT_MAX); 
-	_len = _printf("%b", 45);
+    len = printf("Could you print some non-prntable characters?\nSure:\\x1F\\x7F\\x0A\nThanks!\n");
+	_len = _printf("Could you print some non-prntable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
 	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }

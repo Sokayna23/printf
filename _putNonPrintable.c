@@ -16,21 +16,22 @@ int _putNonPrintable(char *str, t_flag *flags)
 	if (!ptr)
 		return (_puts("(null)", flags));
 	len = _strlen(str);
-	len = (flags && flags->isPrcs && len > flags->prcs) ? flags->prcs : len;
-	i = len;
+	i = (flags && flags->isPrcs && len > flags->prcs) ? flags->prcs : len;
+	len = 0;
 	while (flags && !flags->bar && len < flags->width)
 		len += _putchar(' ');
 	while (i)
 	{
 		if (_isprintable(*ptr))
-			i -= _putchar(*ptr);
+			len += _putchar(*ptr);
 		else
 		{
 			HexChar = _uitoa_base(*ptr, 16);
 			_to_upper(HexChar);
-			i -= _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
+			len += _printf("\\x%s%s", (_strlen(HexChar) == 1 ? "0" : ""), HexChar);
 			free(HexChar);
 		}
+		i--;
 		ptr += 1;
 	}
 	while (flags && len < flags->width)
