@@ -15,21 +15,22 @@ int _puts(char *str, t_flag *flags)
 	ptr = str;
 	if (!ptr)
 		return (_puts("(null)", flags));
-	len = _strlen(ptr);
+	len = _strlen(str);
+	len = (len < flags->prcs && flags->isPrcs) ? len : flags->prcs;
+	i = len;
 	while (flags && !flags->bar && len < flags->width)
 		len += _putchar(' ');
-	while (*ptr)
+	while (i)
 	{
-		i = _strlen(ptr);
 		if (i >= BUFFER_SIZE)
 		{
 			write(1, ptr, BUFFER_SIZE);
-			ptr += BUFFER_SIZE;
+			i -= BUFFER_SIZE;
 		}
 		else
 		{
 			write(1, ptr, i);
-			ptr += i;
+			i = 0;
 		}
 	}
 	while (flags && len < flags->width)

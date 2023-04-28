@@ -9,16 +9,11 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len;
+	int _len;
 
-	len = _printf("|%-20X|\n", 102498402);
-	len2 = printf("|%-20X|\n", 102498402);
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
+    len = printf("|%10.2s|\n", "Test"); 
+	_len = _printf("|%10.2S|\n", "Test");
+	printf(" len : %d\n_len : %d\n", len, _len);
 	return (0);
 }

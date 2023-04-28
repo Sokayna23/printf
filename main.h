@@ -43,7 +43,7 @@ char *_uitoa_base(unsigned long int n, int base);
 int _isinstr(char *str, char toFind);
 void _to_upper(char *s);
 int _isprintable(char c);
-int _putNonPrintable(char *str);
+int _putNonPrintable(char *str, t_flag *flags);
 int _putAddress(unsigned long int address, t_flag *flags);
 void resetFlags(t_flag *flags);
 void getFlags(const char **format, t_flag *flags, va_list args);

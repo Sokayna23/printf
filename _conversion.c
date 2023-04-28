@@ -15,7 +15,7 @@ int getConversion(const char *format, va_list args, t_flag *flags)
 	else if ((*format == 's'))
 		length = _puts(va_arg(args, char *), flags);
 	else if ((*format == 'S'))
-		length = _putNonPrintable(va_arg(args, char *));
+		length = _putNonPrintable(va_arg(args, char *), flags);
 	else if (*format == 'd' || *format == 'i')
 		length = _putd(_va_arg(args, flags->lenMod), *flags);
 	else if (_isinstr("buoxX", *format))
