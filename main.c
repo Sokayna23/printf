@@ -12,8 +12,9 @@ int main(void)
 	int len;
 	int _len;
 
-    len = printf("pt |%0-.16x|\n", 102498402);
-	_len = _printf("_pt|%0-.16x|\n", 102498402);
-	printf(" len : %d\n_len : %d\n", len, _len);
+	_len = _printf("%+*d;%+*i\n%+*d;%+*i\n%+*d;%+*i\n", 6, INT_MAX, 6, INT_MAX, 6, INT_MIN, 6, INT_MIN, 6, 0, 6, 0);
+    len = printf("%+*d;%+*i\n%+*d;%+*i\n%+*d;%+*i\n", 6, INT_MAX, 6, INT_MAX, 6, INT_MIN, 6, INT_MIN, 6, 0, 6, 0);
+
+	printf("\nlen : %d\n_len : %d\n", len, _len);
 	return (0);
 }
